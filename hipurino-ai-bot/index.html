@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>HIPURINO AI Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #f8f9fa; color: #333; }
+    h1 { color: #d62828; }
+    #chat { border: 1px solid #ccc; padding: 1rem; background: #fff; border-radius: 0.5rem; max-width: 600px; margin: auto; }
+    .msg { margin-bottom: 1rem; }
+    .bot { color: #d62828; font-weight: bold; }
+    .user { color: #007bff; font-weight: bold; }
+    input { padding: 0.5rem; width: 80%; margin-right: 0.5rem; }
+    button { padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>🤖 HIPURINO AI Assistant</h1>
+  <div id="chat">
+    <div class="msg bot">สวัสดีครับ! ผมคือผู้ช่วยฝ่ายขาย HIPURINO ครับ ✨</div>
+  </div>
+  <div style="text-align:center; margin-top: 1rem;">
+    <input type="text" id="input" placeholder="พิมพ์คำถามเกี่ยวกับสินค้า...">
+    <button onclick="send()">ส่ง</button>
+  </div>
+
+  <script>
+    function send() {
+      const input = document.getElementById("input");
+      const text = input.value.trim();
+      if (!text) return;
+
+      const chat = document.getElementById("chat");
+      chat.innerHTML += '<div class="msg user">คุณ: ' + text + '</div>';
+      chat.innerHTML += '<div class="msg bot">กำลังประมวลผล... (ยังไม่ได้เชื่อม GPT จริง)</div>';
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
